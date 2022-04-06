@@ -1,0 +1,47 @@
+<script>
+   class Tree{
+       constructor(value){
+           this.value = value;
+           this.children = [];
+       }
+
+       //노드를 삽입하는 메소드
+       insertNode(value){
+            const childNode = new Tree(value);//인스턴스 객체(=자식노드) 생성
+            this.children.push(childNode); //자식노드를 푸시  
+       }
+
+       //트리 안에 해당 값이 포함되어 있는지 확인하는 메소드
+       contains(value){
+           if (this.value ===value){
+               return true;
+           }
+            //TODO: 값을 찾을 때까지 children 배열 순회하며 childNode 탐색
+           else{
+               for(let i =0; i<this.children.length; i++){
+                   const childNode = this.children[i];
+                   if(childNode.contains(value)){//자식노드들이 value를
+                       return true;
+                   }
+               }
+           }
+           //전부 탐색했음에도 true 나오지 않으면 마지막에 false로 반환
+           return false;
+       }
+   }
+
+   //사용하기
+   //1step) 객체화??    
+   const rootNode = new Tree(null);
+   for(let i=0; i<=4; i++){
+       if(rootNode.children[i]){ //children[i] 있으면 children 배열에 childNode push
+           rootNode.children[i].insertNode(i);
+       }
+       //아니면 그냥 childNode만 push??
+       //얘 머지
+       rootNode.insertNode(i);
+   }
+   rootNode; //초반 rootNode에 자식 노드들이 한 개도 없으므로 rootNode = {value:null,children:Array(5)}
+   rootNode.contains(5); //false
+   rootNode.contains(1); //false
+</script>
