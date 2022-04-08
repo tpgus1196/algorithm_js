@@ -1,0 +1,32 @@
+<script>
+
+const id_list = ["muzi", "frodo", "apeach", "neo"];
+const report = [
+  "muzi frodo",
+  "apeach frodo",
+  "frodo neo",
+  "muzi neo",
+  "apeach muzi"
+];
+const k = 2;
+
+//solution 내부 함수에 쓰면 console 출력되지 않음(이유???)
+let reportObj = new Map();
+id_list.forEach((val) => {
+    return (
+        reportObj[val] = {
+            key: "hi",
+        }
+    )
+  });
+//console.log(reportObj["muzi"].key);  //hi 출력
+//alert(reportObj["frodo"].key); //hi 출력
+
+function solution(id_list, report, k) {
+  const answer = [];
+  return answer;
+}
+
+
+
+</script>
